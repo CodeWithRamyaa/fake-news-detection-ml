@@ -1,0 +1,18 @@
+{
+    "best_model": "Logistic_Regression",
+    "best_macro_f1": 0.9484465578491647,
+    "all_models": {
+        "Logistic_Regression": {
+            "accuracy": 0.9488,
+            "precision_macro": 0.947886573423063,
+            "recall_macro": 0.9491430806245096,
+            "f1_macro": 0.9484465578491647
+        },
+        "Multinomial_Naive_Bayes": {
+            "accuracy": 0.8862,
+            "precision_macro": 0.8848673132740954,
+            "recall_macro": 0.8870296559415142,
+            "f1_macro": 0.8856102936100302
+        }
+    }
+}
