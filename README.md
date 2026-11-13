@@ -2,90 +2,71 @@
 
 ### Machine Learning-Based News Classification Using NLP
 
-An educational machine-learning application that classifies news articles using Natural Language Processing (NLP), TF-IDF feature extraction, and machine-learning algorithms.
+An educational machine learning project that classifies news articles as **Fake** or **Real** using Natural Language Processing (NLP) and machine learning algorithms.
 
-The application provides an interactive Streamlit dashboard where users can enter a news headline and article to receive a model prediction.
+The project includes data preprocessing, model training, evaluation, and an interactive Streamlit web application.
 
 ---
 
 ## 🚀 Project Overview
 
-The Fake News Detection System explores how machine learning can be used to classify news articles into two categories:
+The Fake News Detection System analyzes news text and predicts whether it is likely to be fake or real based on patterns learned from a labelled dataset.
 
-- **Fake:** Classified as fake by the trained model.
-- **Real:** Classified as real by the trained model.
+Two machine learning algorithms are implemented and evaluated:
 
-The project compares multiple machine-learning algorithms and selects the best-performing model based on Macro F1 Score.
+- Logistic Regression
+- Multinomial Naive Bayes
+
+Logistic Regression was selected as the best-performing model based on the evaluation results.
+
+---
 
 ## ✨ Features
 
-- News classification using machine learning.
-- Headline and article text input.
-- Prediction confidence display.
-- TF-IDF text feature extraction.
-- Comparison of multiple machine-learning models.
-- Accuracy, Precision, Recall and F1-score analysis.
-- Confusion matrix visualization.
-- Interactive Streamlit dashboard.
+- **News Classification:** Enter news text and receive a prediction.
+- **Text Preprocessing:** Clean and prepare text for machine learning.
+- **TF-IDF Vectorization:** Convert text into numerical features.
+- **Model Comparison:** Evaluate two machine learning algorithms.
+- **Performance Dashboard:** View accuracy, precision, recall, and F1-score.
+- **Confusion Matrices:** Visualize model classification performance.
+- **Interactive Interface:** Explore the project through a Streamlit application.
 
-## 🧠 Technologies Used
+---
+
+## 📊 Model Performance
+
+The models were evaluated using a held-out test dataset.
+
+| Evaluation Metric | Logistic Regression | Multinomial Naive Bayes |
+|---|---:|---:|
+| Accuracy | 94.88% | 88.62% |
+| Macro Precision | 94.79% | 88.49% |
+| Macro Recall | 94.91% | 88.70% |
+| Macro F1-Score | 94.84% | 88.56% |
+
+### 🏆 Best Model: Logistic Regression
+
+Logistic Regression achieved the highest overall performance among the two evaluated models and was selected for the application.
+
+*Note: These results represent the project's held-out test evaluation and should not be interpreted as guaranteed real-world accuracy.*
+
+---
+
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
 |---|---|
 | Python | Programming language |
-| Pandas | Data handling |
+| Pandas | Data manipulation |
 | NumPy | Numerical operations |
 | Scikit-learn | Machine learning |
 | NLTK | Natural Language Processing |
 | Matplotlib | Data visualization |
 | Seaborn | Statistical visualization |
 | Streamlit | Web application |
-| Joblib | Model saving and loading |
+| Joblib | Model serialization |
 
-## ⚙️ Machine Learning Workflow
-
-Dataset → Text Preprocessing → TF-IDF → Model Training → Model Evaluation → Prediction
-
-### 1. Dataset
-The project uses the WELFake news dataset.
-
-### 2. Text Preprocessing
-- Text cleaning
-- Removal of unnecessary characters
-- Combining headline and article text
-- Duplicate removal
-
-### 3. Feature Extraction
-TF-IDF (Term Frequency–Inverse Document Frequency) converts text into numerical features for machine-learning models.
-
-### 4. Model Training
-The following algorithms are compared:
-
-- Logistic Regression
-- Multinomial Naive Bayes
-
-### 5. Model Evaluation
-Models are evaluated using:
-- Accuracy
-- Macro Precision
-- Macro Recall
-- Macro F1 Score
-- Confusion Matrix
-
-## 📊 Model Performance
-
-The following results were obtained during model evaluation:
-
-| Metric | Logistic Regression | Multinomial Naive Bayes |
-|---|---:|---:|
-| Accuracy | 94.88% | 88.62% |
-| Macro Precision | 94.79% | 88.49% |
-| Macro Recall | 94.91% | 88.70% |
-| Macro F1 Score | 94.84% | 88.56% |
-
-**Best Performing Model:** Logistic Regression
-
-*These results are from the project's held-out test split. They should not be interpreted as a guarantee of accuracy on new or real-world news.*
+---
 
 ## 📁 Project Structure
 
@@ -100,81 +81,126 @@ fake-news-detection-ml/
 │   └── best_model.joblib
 │
 ├── reports/
-│   ├── figures/
-│   └── model_metrics.json
+│   ├── Logistic_Regression_report.json
+│   ├── Multinomial_Naive_Bayes_report.json
+│   ├── model_metrics.json
+│   │
+│   └── figures/
+│       ├── Logistic_Regression_confusion_matrix.png
+│       └── Multinomial_Naive_Bayes_confusion_matrix.png
 │
 ├── src/
+│   ├── __init__.py
 │   ├── preprocessing.py
 │   ├── train_model.py
 │   └── evaluation.py
 │
 ├── app.py
 ├── requirements.txt
-├── README.md
-└── .gitignore
+├── .gitignore
+└── README.md
 ```
 
-## 💻 Installation and Setup
+---
 
-### Step 1: Clone the Repository
+## ⚙️ Installation and Setup
+
+### 1. Clone the Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/CodeWithRamyaa/fake-news-detection-ml.git
 ```
 
-### Step 2: Open the Project Folder
+### 2. Open the Project Folder
 
 ```bash
 cd fake-news-detection-ml
 ```
 
-### Step 3: Install Dependencies
+### 3. Create a Virtual Environment
 
 ```bash
-pip install -r requirements.txt
+python -m venv venv
 ```
 
-### Step 4: Prepare the Dataset
+### 4. Activate the Environment
 
-Place the WELFake dataset CSV file inside:
+Windows PowerShell:
 
-```text
-data/raw/WELFake_Dataset.csv
+```powershell
+.\venv\Scripts\Activate.ps1
 ```
 
-### Step 5: Train the Models
+### 5. Install Dependencies
 
 ```bash
-python src/train_model.py
+python -m pip install -r requirements.txt
 ```
 
-### Step 6: Run the Application
+---
+
+## ▶️ Running the Application
+
+Start the Streamlit application:
 
 ```bash
 python -m streamlit run app.py
 ```
 
-The application will open in your browser.
+Open the local address displayed in the terminal, usually:
 
-## 📌 Future Improvements
+```text
+http://localhost:8501
+```
 
-- Test on independent news datasets.
-- Improve model generalization.
-- Explore advanced NLP techniques.
-- Add additional machine-learning algorithms.
-- Improve prediction explanations.
-- Develop multilingual news classification.
+---
 
-## ⚠️ Disclaimer
+## 🔄 Machine Learning Workflow
+
+1. Dataset collection
+2. Data cleaning and preprocessing
+3. Text normalization
+4. TF-IDF feature extraction
+5. Model training
+6. Model evaluation
+7. Best-model selection
+8. Model saving
+9. Streamlit application deployment
+
+---
+
+## 📈 Application Pages
+
+The application contains four main sections:
+
+- **Home:** Project introduction and overview.
+- **Detect News:** Enter news text and view its predicted classification.
+- **Model Performance:** Compare model evaluation metrics and visualizations.
+- **About Project:** Learn about the methodology, workflow, and limitations.
+
+---
+
+## ⚠️ Limitations
+
+- Predictions depend on patterns learned from the training dataset.
+- Unfamiliar topics and writing styles may affect predictions.
+- Model confidence does not establish factual correctness.
+- The application does not independently verify news against trusted sources.
+
+---
+
+## 📌 Disclaimer
 
 This application is an educational machine-learning project. Its predictions do not establish whether information is factually correct. Verify important news using reliable independent sources.
+
+---
 
 ## 👩‍💻 Author
 
 **CodeWithRamyaa**
 
-Artificial Intelligence and Data Science Student
+GitHub: [CodeWithRamyaa](https://github.com/CodeWithRamyaa)
 
 ---
 
-⭐ If you find this project interesting, consider giving the repository a star!
+⭐ If you find this project interesting, consider starring the repository!
