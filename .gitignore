@@ -19,5 +19,3 @@ raw/
 .DS_Store
 Thumbs.db
 
-git add .gitignore
-git commit -m "Update gitignore rules"
